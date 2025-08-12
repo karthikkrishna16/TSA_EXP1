@@ -11,8 +11,31 @@ To Develop a python program to Plot a time series data (population/ market price
 4. Plot the data according to need and can be altered monthly, or yearly.
 5. Display the graph.
 # PROGRAM:
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import seaborn as sns
+import matplotlib.pyplot as plt
+import warnings
+warnings.filterwarnings('ignore')
 
+df = pd.read_csv("/kaggle/input/delhi-air-quality-dataset/final_dataset.csv")
+df.head()
 
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+plt.figure(figsize=(14, 6))
+for col in ['PM2.5', 'PM10', 'NO2', 'SO2', 'CO', 'Ozone']:
+    plt.plot(df['Date'], df[col], label=col, alpha=0.7)
+
+plt.title('Daily Trend of Pollutants in Delhi')
+plt.xlabel('Date')
+plt.ylabel('Pollutant Levels')
+plt.legend()
+plt.tight_layout()
+plt.show()
 
 
 
@@ -25,6 +48,7 @@ To Develop a python program to Plot a time series data (population/ market price
 # OUTPUT:
 
 
+![Uploading Screenshot 2025-08-12 140908.png…]()
 
 
 
