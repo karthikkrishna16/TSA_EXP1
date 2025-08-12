@@ -39,8 +39,8 @@ plt.tight_layout()
 plt.show()
 ```
 # OUTPUT:
-```
+
 <img width="1417" height="612" alt="Screenshot 2025-08-12 140908" src="https://github.com/user-attachments/assets/d0b12c49-e557-40ad-9093-0cbb2887bf17" />
-```
+
 # RESULT:
 Thus we have created the python code for plotting the time series of given data.
