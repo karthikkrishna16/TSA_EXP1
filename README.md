@@ -1,7 +1,6 @@
 # Ex.No: 01A PLOT A TIME SERIES DATA
-###  Date: 12.08.2025
-     NAME:TH KARTHIK KRISHNA
-     REG NO: 212223240067
+###  Date: 12/08/2025
+
 # AIM:
 To Develop a python program to Plot a time series data (population/ market price of a commodity
 /temperature.
@@ -13,35 +12,47 @@ To Develop a python program to Plot a time series data (population/ market price
 5. Display the graph.
 # PROGRAM:
 ```
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import seaborn as sns
+
+import numpy as np 
+import pandas as pd
 import matplotlib.pyplot as plt
-import warnings
-warnings.filterwarnings('ignore')
+import seaborn as sns
 
-import os
-for dirname, _, filenames in os.walk('/kaggle/input'):
-    for filename in filenames:
-        print(os.path.join(dirname, filename))
+df=pd.read_csv('/content/BMW_Car_Sales_Classification.csv')
+df
 
-df = pd.read_csv("/kaggle/input/delhi-air-quality-dataset/final_dataset.csv")
-df.head()
+df.info()
 
-plt.figure(figsize=(14, 6))
-for col in ['PM2.5', 'PM10', 'NO2', 'SO2', 'CO', 'Ozone']:
-    plt.plot(df['Date'], df[col], label=col, alpha=0.7)
+df.isnull().sum()
 
-plt.title('Daily Trend of Pollutants in Delhi')
-plt.xlabel('Date')
-plt.ylabel('Pollutant Levels')
-plt.legend()
-plt.tight_layout()
+df.dtypes
+
+target = 'Year'
+
+sns.set(style="whitegrid")
+plt.rcParams["figure.figsize"] = (10, 6)
+
+plt.figure()
+sns.countplot(x=target, data=df, palette='pastel')
+plt.title('Target Class Distribution')
+plt.xlabel(target)
+plt.ylabel('Count')
 plt.show()
+
+
 ```
 # OUTPUT:
+<img width="1398" height="516" alt="Screenshot 2025-08-12 134933" src="https://github.com/user-attachments/assets/a58d301e-5065-4258-ae90-a68ba85f66f2" />
+<img width="537" height="406" alt="Screenshot 2025-08-12 134948" src="https://github.com/user-attachments/assets/dab24ebf-6f99-48c3-aaff-3611e146ba01" />
 
-<img width="1417" height="612" alt="Screenshot 2025-08-12 140908" src="https://github.com/user-attachments/assets/d0b12c49-e557-40ad-9093-0cbb2887bf17" />
+<img width="338" height="534" alt="Screenshot 2025-08-12 134958" src="https://github.com/user-attachments/assets/3aa4a850-8273-4257-bb13-b1dd7d12325d" />
+<img width="1184" height="665" alt="Screenshot 2025-08-12 135043" src="https://github.com/user-attachments/assets/72b049d8-a006-4ac3-ad02-b7b3a0962a0d" />
+
+
+
+
+
+
 
 # RESULT:
 Thus we have created the python code for plotting the time series of given data.
